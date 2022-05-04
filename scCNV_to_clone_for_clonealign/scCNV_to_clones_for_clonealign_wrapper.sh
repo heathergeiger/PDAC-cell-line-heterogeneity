@@ -31,6 +31,13 @@ awk '{ OFS="\t"}{split($4,a,"_");cellnum=a[2];copynum=a[3];region=$5":"$6"-"$7;o
  awk '!seen[$1]++' \
  tr '_' '\t' > ${sample}_intersect_mappable_regions_one_copy_number_per_cell_region_combination.txt
  
+#Get number of genes overlapping each mappable region.
+#Will use this in the R script run immediately after this.
+
+intersectBed -wo -a ${sample}_mappable_regions_2Mb.bed -b Ensembl_84_minus_non_canonical_and_chrM_unique_names_select_biotypes.bed | \
+ awk '{print $1":"$2"-"$3}' | \
+ awk '{seen[$1]++} END {for(i in seen)print i"\t"seen[i]}' > ${sample}_mappable_regions_2Mb_num_intersecting_genes.txt
+ 
 #Use an R script to convert from long to wide format (cell x region copy number matrix), and then go from here to define clones all within that script.
 #Will eventually make this as a markdown file so can show plots.
  
