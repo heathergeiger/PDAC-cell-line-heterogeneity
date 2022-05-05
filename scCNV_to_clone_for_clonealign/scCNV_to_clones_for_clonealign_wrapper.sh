@@ -28,7 +28,7 @@ awk '{ OFS="\t"}{split($4,a,"_");cellnum=a[2];copynum=a[3];region=$5":"$6"-"$7;o
  awk '{sum[$1]+=$2} END {for(i in sum)print i"\t"sum[i]}' | \
  sort -n -r -k2,2 | \
  awk '{ OFS="\t"}{split($1,a,"_");print a[1]"_"a[2],a[3]}' | \
- awk '!seen[$1]++' \
+ awk '!seen[$1]++' | \
  tr '_' '\t' > ${sample}_intersect_mappable_regions_one_copy_number_per_cell_region_combination.txt
  
 #Get number of genes overlapping each mappable region.
