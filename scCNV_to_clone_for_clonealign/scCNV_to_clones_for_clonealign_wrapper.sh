@@ -63,7 +63,7 @@ Rscript scripts/CNV_to_clones_for_clonealign_corresp_wrapper.R
 
 gene_coord_bed=Ensembl_84_minus_non_canonical_and_chrM_unique_names_select_biotypes.bed
 
-echo "Gene,clone1,clone2" > ${sample}_gene_by_clone.csv
+echo "Gene,Clone1,Clone2" > ${sample}_gene_by_clone.csv
 intersectBed -wo -a ${sample}_segment_by_clone.bed -b $gene_coord_bed | \
  awk '{ OFS=","}{split($4,a,"_");print $8,a[1],a[2]}' | \
  awk '!seen[$0]++' >> ${sample}_gene_by_clone.csv
