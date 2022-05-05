@@ -38,10 +38,12 @@ intersectBed -wo -a ${sample}_mappable_regions_2Mb.bed -b Ensembl_84_minus_non_c
  awk '{print $1":"$2"-"$3}' | \
  awk '{seen[$1]++} END {for(i in seen)print i"\t"seen[i]}' > ${sample}_mappable_regions_2Mb_num_intersecting_genes.txt
  
-#Use an R script to convert from long to wide format (cell x region copy number matrix), and then go from here to define clones all within that script.
-#Will eventually make this as a markdown file so can show plots.
- 
-Rscript scripts/CNV_to_clones_for_clonealign_corresp_wrapper.R
+#Use an R script to convert from long to wide format (cell x region copy number matrix),
+#and then go from here to define clones all within that script.
+#Output from Rmarkdown version of this R script also available here in same directory as this script:
+#scCNV_to_clones_for_clonealign.html
+
+Rscript scCNV_to_clones_for_clonealign.R
  
 #End result of this script looks like this (for MP2-B):
 #chr7	7480000	22520000	4_3
@@ -56,7 +58,8 @@ Rscript scripts/CNV_to_clones_for_clonealign_corresp_wrapper.R
 #...
 
 #This is a BED file with the name field containing clone1-copy-num_clone2-copy-num.
-#Intersect this BED file with gene coordinates. Here using Ensembl 84, excluding certain chromosomes and gene biotypes to match the GTF used for scRNA, and giving a unique gene symbol per gene ID.
+#Intersect this BED file with gene coordinates.
+#Here using Ensembl 84, excluding certain chromosomes and gene biotypes to match the GTF used for scRNA, and giving a unique gene symbol per gene ID.
 
 #Afer the intersect, awk command to convert to CSV gene x clone output.
 #The awk '!seen[$0]++' uniques for the few cases where the gene overlaps multiple segments.
