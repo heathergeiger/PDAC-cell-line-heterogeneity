@@ -1,4 +1,6 @@
-First, run the wrapper script.
+This is the code used to create figures 2e-2j in the paper.
+
+First, run the wrapper script. This will intersect node_cnv_calls.bed with mappable_regions.bed. So that we can have the same regions for each cell versus slightly different coordiantes as sometimes occurs in node_cnv_calls.bed.
 
 Within that is scCNV_to_clones_for_clonealign.R, which shows an example (on sample MP2B) of converting the long format data (with one line per intersection of node_cnv_calls.bed coordinate+cell with mappable regions) to wide, and using that to get a segment x clone matrix that will work well with clonealign.
 
