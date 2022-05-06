@@ -4,4 +4,6 @@ Within that is scCNV_to_clones_for_clonealign.R, which shows an example (on samp
 
 The version of this script including plots is available in scCNV_to_clones_for_clonealign.html (output of Rmarkdown version of the R script).
 
-Next, run clonealign. Example of this is in 
+Next, run clonealign. Example of this is in clonealign_example_MP2B.R.
+
+Finally, compare clonealign results for two different sets of segments (one as run for the paper, another including an additional chromosome). This is in 
