@@ -6,4 +6,6 @@ The version of this script including plots is available in scCNV_to_clones_for_c
 
 Next, run clonealign. Example of this is in clonealign_example_MP2B.R.
 
-Finally, compare clonealign results for two different sets of segments (one as run for the paper, another including an additional chromosome). This is in 
+Finally, compare clonealign results for two different sets of segments (one as run for the paper, another including an additional chromosome). This is in MP2B_scRNA_UMAP_and_clustering_vs_clonealign_clones.R and MP2B_scRNA_UMAP_and_clustering_vs_clonealign_clones.html. 
+
+I also included here some small intermediate files such as the coordinates per annotated gene bed file, the segment x clone matrices output by scCNV_to_clones_for_clonealign.R, and the clonealign calls output by clonealign_example_MP2B.R.
