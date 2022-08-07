@@ -1,3 +1,3 @@
 # PDAC-cell-line-heterogeneity
 
-Will add link to paper here once it is published.
+https://doi.org/10.1038/s41467-022-31376-3
